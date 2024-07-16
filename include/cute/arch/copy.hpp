@@ -41,12 +41,12 @@ namespace cute
 //
 // Direct Copy for any type
 //
-
+// NOTE: 作为兜底的拷贝类型，直接将原数据拷贝到目标数据
 template <class S, class D = S>
 struct UniversalCopy
 {
-  using SRegisters = S[1];
-  using DRegisters = D[1];
+    using SRegisters = S[1];
+    using DRegisters = D[1];
 
   template <class S_, class D_>
   CUTE_HOST_DEVICE static constexpr void
