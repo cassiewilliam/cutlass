@@ -38,6 +38,7 @@
 namespace cute
 {
 
+// NOTE：利用模版元编程实现ax + by
 //
 // Accept mutable temporaries
 //

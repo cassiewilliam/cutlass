@@ -33,6 +33,28 @@
 namespace cute
 {
 
+
+// NOTE: 可用于优先重载实现，N越大优先级越高
+// 定义auto c = prefer<2>{}; 则展开如下
+/**
+    template<>
+    struct prefer<1> : public prefer<0>
+    {
+    // inline constexpr prefer() noexcept = default;
+    };
+
+    template<>
+    struct prefer<2> : public prefer<1>
+    {
+    };
+
+    template<>
+    struct prefer<0>
+    {
+    // inline constexpr prefer() noexcept = default;
+    };
+ */
+
 // Infinite types that inherit from each other
 template <size_t N>
 struct prefer : prefer<N-1> {};
